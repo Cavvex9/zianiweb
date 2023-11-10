@@ -107,7 +107,7 @@ export default function Booking() {
         <div className="flex-1 flex items-center justify-center md:justify-end h-full">
           <form
             onSubmit={handleSubmit}
-            className=" md:h-[600px] h-[520px] bg-light w-[320px] md:w-[370px] rounded-t-[14rem] p-[1.5rem] border border-dark"
+            className=" md:h-[600px] h-[520px] bg-light w-[320px] md:w-[370px] rounded-t-[14rem] p-[1.5rem] border border-dark text-sm md:text-[17px]"
           >
             <div className="flex h-full gap-1 md:gap-2 flex-col items-center justify-center bg-blue border border-primary rounded-t-[14rem] pt-[4rem] md:pt-[5rem]">
               <input
