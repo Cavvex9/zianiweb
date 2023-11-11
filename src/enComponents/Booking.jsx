@@ -225,14 +225,14 @@ export default function Booking() {
                   type="submit"
                 >
                   <BsEnvelope className="text-[16px] md:text-xl" />
-                  <span>Réserver</span>
+                  <span>Book Now</span>
                 </button>
                 <button
                   className="border border-blue flex items-center justify-center gap-2 bg-green-600 text-light px-1 py-3 w-1/2 text-[12px] md:text-[14px] font-semibold"
                   onClick={handleSubmitWhatsapp}
                 >
                   <BsWhatsapp className="text-[16px] md:text-xl" />
-                  <span>Par Whatsapp</span>
+                  <span>By Whatsapp</span>
                 </button>
               </div>
             </div>
