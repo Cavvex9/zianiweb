@@ -11,47 +11,48 @@ import {
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 import Image from "next/image";
+import { urlFor } from "../../lib/client";
 
-const data = [
-  {
-    img1: "/gallery/img1.jpeg",
-  },
-  {
-    img1: "/gallery/img2.jpeg",
-  },
-  {
-    img1: "/gallery/img3.jpeg",
-  },
-  {
-    img1: "/gallery/img4.jpeg",
-  },
-  {
-    img1: "/gallery/img5.jpeg",
-  },
-  {
-    img1: "/gallery/img6.jpeg",
-  },
-  {
-    img1: "/gallery/img7.jpeg",
-  },
-  {
-    img1: "/gallery/img8.jpeg",
-  },
-  {
-    img1: "/gallery/img9.jpeg",
-  },
-  {
-    img1: "/gallery/img10.jpeg",
-  },
-  {
-    img1: "/gallery/img11.jpeg",
-  },
-  {
-    img1: "/gallery/img12.jpeg",
-  },
-];
+// const data = [
+//   {
+//     img1: "/gallery/img1.jpeg",
+//   },
+//   {
+//     img1: "/gallery/img2.jpeg",
+//   },
+//   {
+//     img1: "/gallery/img3.jpeg",
+//   },
+//   {
+//     img1: "/gallery/img4.jpeg",
+//   },
+//   {
+//     img1: "/gallery/img5.jpeg",
+//   },
+//   {
+//     img1: "/gallery/img6.jpeg",
+//   },
+//   {
+//     img1: "/gallery/img7.jpeg",
+//   },
+//   {
+//     img1: "/gallery/img8.jpeg",
+//   },
+//   {
+//     img1: "/gallery/img9.jpeg",
+//   },
+//   {
+//     img1: "/gallery/img10.jpeg",
+//   },
+//   {
+//     img1: "/gallery/img11.jpeg",
+//   },
+//   {
+//     img1: "/gallery/img12.jpeg",
+//   },
+// ];
 
-export default function Gallery({title}) {
+export default function Gallery({ title, gallery }) {
   const [swiperRef, setSwiperRef] = useState(null);
 
   const prevHandler = () => {
@@ -93,24 +94,27 @@ export default function Gallery({title}) {
             640: { slidesPerView: 2, spaceBetween: 32 },
             1120: { slidesPerView: 3, spaceBetween: 32 },
           }}
-          className="h-[360px] md:h-[400px] mt-9"
+          className="h-[380px] md:h-[400px] mt-9"
         >
-          {data.map((image, index) => (
-            <SwiperSlide key={index}>
-              <div className="h-full relative cursor-pointer rounded-xl">
-                <Image
-                  className="absolute h-full w-full object-cover rounded-xl border border-primary"
-                  src={image.img1}
-                  alt=""
-                  unoptimized
-                  property={1}
-                  loading="lazy"
-                  width={300}
-                  height={400}
-                />
-              </div>
-            </SwiperSlide>
-          ))}
+           {gallery.map((slide) => {
+              const src = urlFor(slide.image).url();
+              return (
+                <SwiperSlide key={slide._id}>
+                  <div className="cursor-pointer rounded-2xl mx-auto px-7 w-[310px] md:w-[353px] h-[380px] relative border border-primary">
+                    <Image
+                      className="absolute h-full w-full object-cover rounded-2xl border border-primary"
+                      loader={() => src}
+                      src={src}
+                      fill
+                      alt=""
+                      unoptimized
+                      property={1}
+                      loading="lazy"
+                    />
+                  </div>
+                </SwiperSlide>
+              );
+            })}
         </Swiper>
       </div>
     </div>

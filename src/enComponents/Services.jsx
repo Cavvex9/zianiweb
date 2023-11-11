@@ -12,52 +12,12 @@ import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
+import { urlFor } from "../../lib/client";
 
-const data = [
-  {
-    id: 1,
-    image: "/gommage.jpeg",
-    title: "Scrubbing",
-    description:
-      "A purifying ritual that reveals the natural beauty of your skin.",
-  },
-  {
-    id: 2,
-    image: "/savonnage.png",
-    title: "Soaping",
-    description:
-      "An aromatic bath of freshness, for soft and delicately fragranced skin.",
-  },
-  {
-    id: 3,
-    image: "/massage.jpeg",
-    title: "Relaxing Massage with Essential Oils",
-    description: "A sensory escape to soothe the body and mind.",
-  },
-  {
-    id: 4,
-    image: "/algue.jpg",
-    title: "Seaweed Therapy - special back",
-    description:
-      "A revitalizing ritual that soothes back pain and stimulates blood circulation. The benefits of marine algae deeply nourish your skin, providing a soothing and relaxing sensation.",
-  },
-  {
-    id: 5,
-    image: "/chocolate.jpeg",
-    title: "Chocolate body wrap",
-    description:
-      "An indulgent treatment that combines gourmet pleasure with moisturizing benefits, for irresistibly soft skin.",
-  },
-  {
-    id: 6,
-    image: "/masqueCorp.jpeg",
-    title: "Body masks",
-    description:
-      "Choose from our wide range of masks, including exquisite options such as orange coffee, oud, orange blossom, and many more. Each of our body masks is carefully crafted to revitalize your skin, leaving it nourished, radiant, and delicately fragranced.",
-  },
-];
-
-export default function Services() {
+export default function Services({ servicesEn }) {
+  const sortedData = servicesEn
+    .slice()
+    .sort((a, b) => a._createdAt.localeCompare(b._createdAt));
   const [swiperRef, setSwiperRef] = useState(null);
 
   const prevHandler = () => {
@@ -105,33 +65,36 @@ export default function Services() {
         }}
         className="h-[27.6rem] md:h-[29.5rem] max-w-[1124px] md:mt-3"
       >
-        {data.map((item) => (
-          <SwiperSlide
-            key={item.id}
-            className="flex flex-col bg-light rounded-2xl border border-blue cursor-pointer "
-          >
-            <div className="h-[12.7rem] md:h-[14rem] relative bg-light shadow-md rounded-t-2xl">
-              <Image
-                className="absolute h-full w-full object-cover p-2 rounded-t-2xl"
-                src={item.image}
-                width={200}
-                height={200}
-                alt={item.title}
-                unoptimized
-                property={1}
-                loading="lazy"
-              />
-            </div>
-            <div className="flex flex-col p-4 justify-center items-center">
-              <span className="text-blue font-bold text-[16px] md:text-[19px] uppercase text-center min-h-[3rem]">
-                {item.title}
-              </span>
-              <p className="pt-2 md:pt-4 text-center text-[11px] md:text-[12.3px] font-sora leading-5 font-[500]">
-                {item.description}
-              </p>
-            </div>
-          </SwiperSlide>
-        ))}
+        {sortedData.map((slide) => {
+          const src = urlFor(slide.image).url();
+          return (
+            <SwiperSlide key={slide._id}>
+              <div className=" flex flex-col bg-light rounded-2xl border border-blue cursor-pointer h-full">
+                <div className="h-[12.7rem] md:h-[14rem] relative bg-light shadow-md rounded-t-2xl">
+                  <Image
+                    className="absolute h-full w-full object-cover p-2 rounded-t-2xl"
+                    loader={() => src}
+                    src={src}
+                    alt=""
+                    fill
+                    unoptimized
+                    property={1}
+                    loading="lazy"
+                  />
+                </div>
+                {/* text */}
+                <div className="flex flex-col p-4 justify-center items-center">
+                  <span className="text-blue font-bold text-[16px] md:text-[19px] uppercase text-center min-h-[3rem]">
+                    {slide.name}
+                  </span>
+                  <p className="pt-2 md:pt-4 text-center text-[11px] md:text-[12.3px] font-sora leading-5 font-[500]">
+                    {slide.desc}
+                  </p>
+                </div>
+              </div>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
   );

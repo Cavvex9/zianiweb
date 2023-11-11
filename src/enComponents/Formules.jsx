@@ -12,53 +12,56 @@ import {
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 
-const data = [
-  {
-    id: 1,
-    color: "green",
-    title: "Seaweed package",
-    descriptions: [
-      "Entry + Scrubbing",
-      "Soaping",
-      "30 mins of relaxing massage with essential oils",
-      "Seaweed Therapy + special back",
-      "Bathrobe",
-      "Toilet bag",
-    ],
-    price: 350,
-  },
-  {
-    id: 2,
-    color: "brown",
-    title: "chocolate package",
-    descriptions: [
-      "Entry + Scrubbing",
-      "Soaping",
-      "30 mins of relaxing massage with essential oils",
-      "Chocolate body wrap",
-      "Bathrobe",
-      "Toilet bag",
-    ],
-    price: 400,
-  },
-  {
-    id: 3,
-    color: "gold",
-    title: "Premium package",
-    descriptions: [
-      "Entry + Scrubbing",
-      "Soaping",
-      "One hour of relaxing massage with essential oils ",
-      "Seaweed or chocolate body wrap",
-      "Facial brightening mask",
-      "Hydrating body mask",
-      "Bathrobe + Toilet bag",
-    ],
-    price: 500,
-  },
-];
+// const data = [
+//   {
+//     id: 1,
+//     color: "green",
+//     title: "Seaweed package",
+//     descriptions: [
+//       "Entry + Scrubbing",
+//       "Soaping",
+//       "30 mins of relaxing massage with essential oils",
+//       "Seaweed Therapy + special back",
+//       "Bathrobe",
+//       "Toilet bag",
+//     ],
+//     price: 350,
+//   },
+//   {
+//     id: 2,
+//     color: "brown",
+//     title: "chocolate package",
+//     descriptions: [
+//       "Entry + Scrubbing",
+//       "Soaping",
+//       "30 mins of relaxing massage with essential oils",
+//       "Chocolate body wrap",
+//       "Bathrobe",
+//       "Toilet bag",
+//     ],
+//     price: 400,
+//   },
+//   {
+//     id: 3,
+//     color: "gold",
+//     title: "Premium package",
+//     descriptions: [
+//       "Entry + Scrubbing",
+//       "Soaping",
+//       "One hour of relaxing massage with essential oils ",
+//       "Seaweed or chocolate body wrap",
+//       "Facial brightening mask",
+//       "Hydrating body mask",
+//       "Bathrobe + Toilet bag",
+//     ],
+//     price: 500,
+//   },
+// ];
 
-export default function Formules() {
+export default function Formules({formulesEn}) {
+  const sortedData = formulesEn
+  .slice()
+  .sort((a, b) => a._createdAt.localeCompare(b._createdAt));
   const [swiperRef, setSwiperRef] = useState(null);
 
   const prevHandler = () => {
@@ -103,7 +106,7 @@ export default function Formules() {
       <button
         onClick={prevHandler}
         className={`w-9 h-9 absolute bottom-3 right-[5rem] cursor-pointer ${
-          data.length > 3
+          formulesEn.length > 3
             ? "xl:inline-block xl:left-[15rem] xl:bottom-[4rem]"
             : "xl:hidden"
         } `}
@@ -113,7 +116,7 @@ export default function Formules() {
       <button
         onClick={nextHandler}
         className={`w-9 h-9 absolute bottom-3 right-[2rem] ${
-          data.length > 3
+          formulesEn.length > 3
             ? "xl:inline-block xl:right-[15rem] xl:bottom-[4rem]"
             : "xl:hidden"
         }`}
@@ -132,9 +135,9 @@ export default function Formules() {
         }}
         className="md:h-[25rem] h-[18.3rem] max-w-[1324px]"
       >
-        {data.map((item) => (
+        {sortedData.map((item) => (
           <SwiperSlide
-            key={item.id}
+            key={item._id}
             className=" h-full pt-[5rem] cursor-pointer"
           >
             <div className=" bg-light h-[12.5rem] md:h-[14rem] w-[85%] md:w-[24rem] m-auto rounded-xl relative border border-blue">
@@ -144,15 +147,15 @@ export default function Formules() {
                 )} -z-10 rounded-xl`}
               />
               <div
-                className={`absolute -top-5 -left-5 w-[11rem] h-[2.8rem] rounded-xl ${getColorClass(
+                className={`absolute -top-5 -left-5 w-[10rem] h-[2.8rem] rounded-xl ${getColorClass(
                   item.color
-                )} flex items-center justify-center border border-blue font-bold uppercase text-[13px] md:text-[15px]`}
+                )} flex items-center justify-center border border-blue font-bold uppercase text-sm md:text-[16px]`}
               >
-                {item.title}
+                {item.name}
               </div>
               {/* texts */}
               <ul className="mt-6 md:mt-7 p-4 flex flex-col gap-1 marker:text-sky-700 list-disc pl-5 md:pl-7">
-                {item.descriptions.map((ItemDesc, index) => (
+                {item.formuleDesc.map((ItemDesc, index) => (
                   <li
                     className="font-sora text-[11px] md:text-[12px]"
                     key={index}

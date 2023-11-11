@@ -7,7 +7,8 @@ import Salon from "@/components/Salon";
 import Services from "@/components/Services";
 import Specialty from "@/components/Specialty";
 import Head from "next/head";
-export default function Home() {
+import { client } from "../../lib/client";
+export default function Home({ services, formules, gallery }) {
   return (
     <>
       <Head>
@@ -20,12 +21,28 @@ export default function Home() {
         <Hero />
         <Baths />
         <Specialty />
-        <Services />
-        <Formules />
+        <Services services={services} />
+        <Formules formules={formules} />
         <Salon />
-        <Gallery title="galerie" />
+        <Gallery gallery={gallery} title="galerie" />
         <Booking />
       </main>
     </>
   );
 }
+
+export const getServerSideProps = async () => {
+  const query = '*[_type == "services"]';
+  const query2 = '*[_type == "gallery"]';
+  const query3 = '*[_type == "formules"]';
+  const services = await client.fetch(query);
+  const gallery = await client.fetch(query2);
+  const formules = await client.fetch(query3);
+  return {
+    props: {
+      services,
+      gallery,
+      formules,
+    },
+  };
+};

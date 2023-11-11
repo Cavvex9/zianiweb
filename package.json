@@ -12,6 +12,8 @@
     "@fontsource-variable/sora": "^5.0.15",
     "@fontsource/roboto-condensed": "^5.0.13",
     "@headlessui/react": "^1.7.17",
+    "@sanity/client": "^6.8.0",
+    "@sanity/image-url": "^1.0.2",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4",
     "framer-motion": "^10.6.0",

@@ -8,8 +8,9 @@ import Hero from "@/enComponents/Hero";
 import Services from "@/enComponents/Services";
 import Head from "next/head";
 import React from "react";
+import { client } from "../../lib/client";
 
-export default function en() {
+export default function en({ servicesEn, formulesEn, gallery }) {
   return (
     <>
       <Head>
@@ -22,12 +23,28 @@ export default function en() {
         <Hero />
         <Baths />
         <Speciality />
-        <Services />
-        <Formules />
+        <Services servicesEn={servicesEn} />
+        <Formules formulesEn={formulesEn} />
         <Salon />
-        <Gallery title="gallery" />
+        <Gallery gallery={gallery} title="gallery" />
         <Booking />
       </main>
     </>
   );
 }
+
+export const getServerSideProps = async () => {
+  const query = '*[_type == "servicesEnglish"]';
+  const query2 = '*[_type == "gallery"]';
+  const query3 = '*[_type == "formulesEnglish"]';
+  const servicesEn = await client.fetch(query);
+  const gallery = await client.fetch(query2);
+  const formulesEn = await client.fetch(query3);
+  return {
+    props: {
+      servicesEn,
+      gallery,
+      formulesEn,
+    },
+  };
+};
