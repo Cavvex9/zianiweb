@@ -7,6 +7,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { Menu } from "@headlessui/react";
 import toast, { Toaster } from "react-hot-toast";
+import { BsEnvelope, BsWhatsapp } from "react-icons/bs";
 
 const services = [
   {
@@ -44,7 +45,7 @@ export default function Booking() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmitWhatsapp = (e) => {
     e.preventDefault();
     const { nom, email, date, heure, service, message } = formData;
     if (!nom) {
@@ -55,6 +56,53 @@ export default function Booking() {
       const whatsappMessage = `Nom: ${nom}%0AEmail: ${email}%0ADate: ${date}%0AHeure: ${heure}%0AService: ${service}%0AMessage: ${message}`;
       const whatsappLink = `https://wa.me/+212661166627?text=${whatsappMessage}`;
       window.location.href = whatsappLink;
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { nom, email, date, heure, service, message } = formData;
+
+    if (!nom) {
+      toast.error("Le nom est requis");
+    } else if (!email) {
+      toast.error("l'e-mail est requis");
+    } else if (!service) {
+      toast.error("Choisissez un service");
+    } else {
+      // Formspree endpoint for your form
+      const formspreeEndpoint = "https://formspree.io/f/mknlawpq";
+
+      // Send the form data to Formspree
+      fetch(formspreeEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nom,
+          email,
+          date,
+          heure,
+          service,
+          message,
+        }),
+      })
+        .then((response) => {
+          if (response.ok) {
+            // Show success message or redirect
+            toast.success(
+              "Nous vous remercions pour votre réservation. Une confirmation vous sera envoyée prochainement."
+            );
+          } else {
+            // Show error message
+            toast.error("Error submitting the form. Please try again.");
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          toast.error("Internal Server Error. Please try again later.");
+        });
     }
   };
   return (
@@ -106,7 +154,8 @@ export default function Booking() {
         {/* right */}
         <div className="flex-1 flex items-center justify-center md:justify-end h-full">
           <form
-            onSubmit={handleSubmit}
+            action="https://formspree.io/f/mknlawpq"
+            method="POST"
             className=" md:h-[600px] h-[520px] bg-light w-[320px] md:w-[370px] rounded-t-[14rem] p-[1.5rem] border border-dark text-sm md:text-[17px]"
           >
             <div className="flex h-full gap-1 md:gap-2 flex-col items-center justify-center bg-blue border border-primary rounded-t-[14rem] pt-[4rem] md:pt-[5rem]">
@@ -172,12 +221,23 @@ export default function Booking() {
                 value={formData.message}
                 onChange={handleChange}
               />
-              <button
-                className="bg-primary font-semibold text-blue w-[92%] md:w-full max-w-[250px] p-3 text-[14px] md:text-[17px]"
-                type="submit"
-              >
-                Réserver
-              </button>
+              <div className="w-[92%] md:w-full max-w-[250px] flex items-center justify-between">
+                <button
+                  onClick={handleSubmit}
+                  className="bg-primary border border-blue flex items-center justify-center gap-2 px-3 py-3 text-[12px] md:text-[14px] w-1/2 font-semibold"
+                  type="submit"
+                >
+                  <BsEnvelope className="text-[16px] md:text-xl" />
+                  <span>Réserver</span>
+                </button>
+                <button
+                  className="border border-blue flex items-center justify-center gap-2 bg-green-600 text-light px-1 py-3 w-1/2 text-[12px] md:text-[14px] font-semibold"
+                  onClick={handleSubmitWhatsapp}
+                >
+                  <BsWhatsapp className="text-[16px] md:text-xl" />
+                  <span>Par Whatsapp</span>
+                </button>
+              </div>
             </div>
           </form>
         </div>
