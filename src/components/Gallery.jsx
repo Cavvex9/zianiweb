@@ -100,7 +100,7 @@ export default function Gallery({ title, gallery }) {
               const src = urlFor(slide.image).url();
               return (
                 <SwiperSlide key={slide._id}>
-                  <div className="cursor-pointer rounded-2xl mx-auto px-7 w-[280px] md:w-[353px] h-[380px] relative border border-primary">
+                  <div className="cursor-pointer rounded-2xl mx-auto px-7 w-[290px] md:w-[353px] h-[380px] relative border border-primary">
                     <Image
                       className="absolute h-full w-full object-cover rounded-2xl border border-primary"
                       loader={() => src}
