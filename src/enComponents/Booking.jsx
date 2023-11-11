@@ -57,6 +57,14 @@ export default function Booking() {
       const whatsappMessage = `Name: ${name}%0AEmail: ${email}%0ADate: ${date}%0ATime: ${time}%0AService: ${service}%0AMessage: ${message}`;
       const whatsappLink = `https://wa.me/+212661166627?text=${whatsappMessage}`;
       window.location.href = whatsappLink;
+      setFormData({
+        nom: "",
+        email: "",
+        date: "",
+        heure: "",
+        service: "",
+        message: "",
+      });
     }
   };
 
@@ -104,6 +112,14 @@ export default function Booking() {
           console.error("Error:", error);
           toast.error("Internal Server Error. Please try again later.");
         });
+      setFormData({
+        nom: "",
+        email: "",
+        date: "",
+        heure: "",
+        service: "",
+        message: "",
+      });
     }
   };
   return (
@@ -143,7 +159,10 @@ export default function Booking() {
             >
               <InstagramIcon width={35} height={35} fill="currentColor" />
             </Link>
-            <Link className="border border-light bg-blue rounded-md" href={"https://wa.me/+212661166627"}>
+            <Link
+              className="border border-light bg-blue rounded-md"
+              href={"https://wa.me/+212661166627"}
+            >
               <WhatsappIcon width={35} height={35} fill="currentColor" />
             </Link>
           </div>
