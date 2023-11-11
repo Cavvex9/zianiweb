@@ -96,7 +96,7 @@ export default function Booking() {
             );
           } else {
             // Show error message
-            toast.error("Error submitting the form. Please try again.");
+            toast.error("Erreur lors de la soumission du formulaire. Essayez plutôt Whatsapp !");
           }
         })
         .catch((error) => {
@@ -225,7 +225,6 @@ export default function Booking() {
                 <button
                   onClick={handleSubmit}
                   className="bg-primary border border-blue flex items-center justify-center gap-2 px-3 py-3 text-[12px] md:text-[14px] w-1/2 font-semibold"
-                  type="submit"
                 >
                   <BsEnvelope className="text-[16px] md:text-xl" />
                   <span>Réserver</span>

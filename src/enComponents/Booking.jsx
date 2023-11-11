@@ -97,7 +97,7 @@ export default function Booking() {
             );
           } else {
             // Show error message
-            toast.error("Error submitting the form. Please try again.");
+            toast.error("Error submitting the form. Try Whatsapp instead!");
           }
         })
         .catch((error) => {
