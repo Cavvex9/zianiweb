@@ -143,7 +143,7 @@ export default function Booking() {
             >
               <InstagramIcon width={35} height={35} fill="currentColor" />
             </Link>
-            <Link className="border border-light bg-blue rounded-md" href={"/"}>
+            <Link className="border border-light bg-blue rounded-md" href={"https://wa.me/+212661166627"}>
               <WhatsappIcon width={35} height={35} fill="currentColor" />
             </Link>
           </div>

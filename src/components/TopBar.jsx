@@ -34,7 +34,7 @@ export default function TopBar() {
             >
               <RiInstagramLine size={23} />
             </Link>
-            <Link href={"https://www.whatsapp.com"} target="_blank">
+            <Link href={"https://wa.me/+212661166627"} target="_blank">
               <RiWhatsappLine size={23} />
             </Link>
           </div>
@@ -48,7 +48,6 @@ export default function TopBar() {
               ? "Open from 7 AM to 9:30 PM 7 days a week"
               : "Ouvert de 7h à 21h30 7j/7"}
           </span>
-          {/* <span className="font-semibold text-[15px] tracking-wide absolute top-[12.4px] left-[91px]">Ouvert de 7h à 21h30 7j/7</span> */}
         </div>
       </section>
     </div>
