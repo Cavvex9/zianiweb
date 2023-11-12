@@ -102,6 +102,14 @@ export default function Booking() {
             toast.success(
               "Nous vous remercions pour votre réservation. Une confirmation vous sera envoyée prochainement."
             );
+            setFormData({
+              nom: "",
+              email: "",
+              date: "",
+              heure: "",
+              service: "",
+              message: "",
+            });
           } else {
             // Show error message
             toast.error(
@@ -113,14 +121,6 @@ export default function Booking() {
           console.error("Error:", error);
           toast.error("Internal Server Error. Please try again later.");
         });
-      setFormData({
-        nom: "",
-        email: "",
-        date: "",
-        heure: "",
-        service: "",
-        message: "",
-      });
     }
   };
   return (

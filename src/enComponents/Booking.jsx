@@ -103,6 +103,14 @@ export default function Booking() {
             toast.success(
               "Thank you for your reservation. A confirmation will be sent to you soon."
             );
+            setFormData({
+              nom: "",
+              email: "",
+              date: "",
+              heure: "",
+              service: "",
+              message: "",
+            });
           } else {
             // Show error message
             toast.error("Error submitting the form. Try Whatsapp instead!");
@@ -112,14 +120,6 @@ export default function Booking() {
           console.error("Error:", error);
           toast.error("Internal Server Error. Please try again later.");
         });
-      setFormData({
-        nom: "",
-        email: "",
-        date: "",
-        heure: "",
-        service: "",
-        message: "",
-      });
     }
   };
   return (
