@@ -74,7 +74,7 @@ export default function Formules({formules}) {
   const getColorClass = (color) => {
     switch (color) {
       case "red":
-        return "bg-red-500";
+        return "bg-red-500 text-light";
       case "green":
         return "bg-green-400";
       case "yellow":
