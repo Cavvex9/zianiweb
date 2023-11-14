@@ -33,7 +33,7 @@ export default function Salon() {
   }, []);
   return (
     <div className="bg-primary md:h-[650px] " id="salon">
-      <div className="max-w-[1124px] mx-auto md:pt-9 flex flex-col md:flex-row h-full">
+      <div className="max-w-[1124px] px-8 xl:px-0 mx-auto md:pt-9 flex flex-col md:flex-row h-full">
         {/* left */}
         <div className="flex-1 h-full flex flex-col justify-center pt-9">
           <div className="yellowDiv md:justify-start">
@@ -43,7 +43,7 @@ export default function Salon() {
                 : "centre de beauté ziani"}
             </span>
           </div>
-          <div className=" px-8 md:px-0">
+          <div className="">
             <p className="text-justify font-sora leading-[20px] md:leading-[30px] text-[11px] md:text-[12px] lg:text-[14px] font-medium tracking-wide md:pt-5 md:max-w-[90%]">
               {pathname === "/en"
                 ? "Our beauty center offers exceptional services to enhance your appearance. You can choose from a variety of services including hair care, waxing, facials, and many more. Our professional team are pleased to welcome you everyday from 9:30 AM to 7:00 PM."
@@ -53,7 +53,7 @@ export default function Salon() {
         </div>
         {/* right */}
         <div className="flex-1 flex items-center justify-center pt-8 pb-12 md:pt-0 md:pb-0 md:justify-end z-10 h-full">
-          <div className="md:h-[30rem] md:w-[25rem] h-[27rem] w-[80%] border-2 border-light rounded-2xl relative">
+          <div className="md:h-[30rem] md:w-[25rem] h-[27rem] border-2 border-light rounded-2xl relative">
             <button
               onClick={() => {
                 currentSlide === 0

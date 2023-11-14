@@ -68,7 +68,7 @@ export default function Gallery({ title, gallery }) {
       className="bg-ziani bg-center bg-cover h-[650px] md:h-[700px] relative"
       id="galerie"
     >
-      <div className="max-w-[1124px] mx-auto pt-[4rem] px-[3rem] lg:px-0">
+      <div className="max-w-[1124px] mx-auto pt-[4rem] px-[3rem] xl:px-0">
         <div className="yellowDiv">
           <span className="yellowSpan">{title}</span>
         </div>

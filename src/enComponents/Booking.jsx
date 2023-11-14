@@ -123,8 +123,8 @@ export default function Booking() {
     }
   };
   return (
-    <div className="bg-primary md:h-[715px] pb-8 px-8 lg:px-0" id="réservation">
-      <div className="max-w-[1124px] mx-auto md:pt-9 flex flex-col md:flex-row h-full">
+    <div className="bg-primary md:h-[715px] pb-8" id="réservation">
+      <div className="max-w-[1124px] px-8 xl:px-0 mx-auto md:pt-9 flex flex-col md:flex-row h-full">
         {/* left */}
         <div className="flex-1 h-full flex flex-col justify-center pt-9 relative">
           <span className="text-[18px] md:text-[30px] text-center md:text-left font-bold text-blue z-10">
