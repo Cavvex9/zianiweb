@@ -154,7 +154,7 @@ export default function Formules({formulesEn}) {
                 {item.name}
               </div>
               {/* texts */}
-              <ul className="mt-6 md:mt-7 p-4 flex flex-col gap-1 marker:text-sky-700 list-disc pl-5 md:pl-7">
+              <ul className="mt-6 md:mt-7 p-4 flex flex-col gap-1 marker:text-sky-700 list-disc pl-5 md:pl-7 ">
                 {item.formuleDesc.map((ItemDesc, index) => (
                   <li
                     className="font-sora text-[11px] md:text-[12px]"
