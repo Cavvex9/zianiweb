@@ -127,13 +127,13 @@ export default function Services({ services }) {
                 </div>
                 {/* text */}
                 <div className="flex flex-col p-4 justify-center items-center">
-              <span className="text-blue font-bold text-[16px] md:text-[19px] uppercase text-center min-h-[3rem]">
-                {slide.name}
-              </span>
-              <p className="pt-2 md:pt-4 text-center text-[11px] md:text-[12.3px] font-sora leading-5 font-[500]">
-                {slide.desc}
-              </p>
-            </div>
+                  <span className="text-blue font-bold text-[16px] md:text-[19px] uppercase text-center min-h-[3rem]">
+                    {slide.name}
+                  </span>
+                  <p className="pt-2 md:pt-4 text-center text-[11px] md:text-[12.3px] font-sora leading-5 font-[500]">
+                    {slide.desc}
+                  </p>
+                </div>
               </div>
             </SwiperSlide>
           );

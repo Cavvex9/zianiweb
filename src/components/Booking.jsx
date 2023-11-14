@@ -132,10 +132,6 @@ export default function Booking() {
             Pour toute réservation, veuillez remplir les informations suivantes
             ou nous contacter directement au :
           </span>
-          {/* <span className="text-[31px] font-bold text-gray-200 absolute top-[15.9rem] -left-[2px]">
-            Pour toute réservation, veuillez remplir les informations suivantes
-            ou nous contacter directement au :
-          </span> */}
           {/* Numbers */}
           <div className="flex items-center justify-center md:justify-start flex-wrap gap-3 pt-[1.5rem] md:pt-[3rem]">
             <span className="text-[11px] md:text-[14px] font-sora font-semibold bg-blue text-light px-2 py-2 rounded-md">

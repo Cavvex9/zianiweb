@@ -63,7 +63,7 @@ export default function Services({ servicesEn }) {
           640: { slidesPerView: 2, spaceBetween: 32 },
           1120: { slidesPerView: 3, spaceBetween: 32 },
         }}
-        className="h-[27.6rem] md:h-[29.5rem] max-w-[1124px] md:mt-3"
+        className="h-[27.6rem] md:h-[29.5rem] w-[300px] md:w-[90%] lg:w-full max-w-[1124px] md:mt-3"
       >
         {sortedData.map((slide) => {
           const src = urlFor(slide.image).url();
