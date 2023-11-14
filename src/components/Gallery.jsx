@@ -68,7 +68,7 @@ export default function Gallery({ title, gallery }) {
       className="bg-ziani bg-center bg-cover h-[650px] md:h-[700px] relative"
       id="galerie"
     >
-      <div className="max-w-[1124px] mx-auto pt-[4rem] px-8 md:px-0">
+      <div className="max-w-[1124px] mx-auto pt-[4rem] px-[3rem] lg:px-0">
         <div className="yellowDiv">
           <span className="yellowSpan">{title}</span>
         </div>
@@ -100,7 +100,7 @@ export default function Gallery({ title, gallery }) {
               const src = urlFor(slide.image).url();
               return (
                 <SwiperSlide key={slide._id}>
-                  <div className="cursor-pointer rounded-2xl mx-auto px-7 w-[290px] md:w-[353px] h-[380px] relative border border-primary">
+                  <div className="cursor-pointer rounded-2xl mx-auto h-[380px] relative border border-primary">
                     <Image
                       className="absolute h-full w-full object-cover rounded-2xl border border-primary"
                       loader={() => src}
