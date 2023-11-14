@@ -73,7 +73,7 @@ export default function Services({ services }) {
 
   return (
     <div
-      className="bg-primary h-[650px] lg:h-[750px] pt-9 xl:pt-0 px-[2rem] xl:px-0 relative"
+      className="bg-primary h-[650px] md:h-[750px] pt-9 xl:pt-0 px-[2rem] xl:px-0 relative"
       id="services"
     >
       <div
