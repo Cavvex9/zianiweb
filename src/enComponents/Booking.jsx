@@ -192,14 +192,14 @@ export default function Booking() {
                 onChange={handleChange}
               />
               <input
-                className="input before:content-['Date'] before:pr-4 before:text-gray-400 "
+                className="input before:text-gray-400 "
                 type="date"
                 name="date"
                 value={formData.date}
                 onChange={handleChange}
               />
               <input
-                className="input before:content-['Time'] before:pr-4 before:text-gray-400"
+                className="input before:text-gray-400"
                 type="time"
                 name="time"
                 value={formData.time}
