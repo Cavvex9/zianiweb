@@ -164,7 +164,7 @@ export default function Booking() {
             </Link>
             <Link
               className="border border-light bg-blue rounded-md"
-              href={"https://wa.me/+212661166627"}
+              href={"https://wa.me/+212661325840"}
             >
               <WhatsappIcon width={35} height={35} fill="currentColor" />
             </Link>
