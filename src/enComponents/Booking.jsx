@@ -55,7 +55,7 @@ export default function Booking() {
       toast.error("Choose a service");
     } else {
       const whatsappMessage = `Name: ${name}%0AEmail: ${email}%0ADate: ${date}%0ATime: ${time}%0AService: ${service}%0AMessage: ${message}`;
-      const whatsappLink = `https://wa.me/+212661166627?text=${whatsappMessage}`;
+      const whatsappLink = `https://wa.me/+212661325840?text=${whatsappMessage}`;
       window.location.href = whatsappLink;
       setFormData({
         nom: "",
