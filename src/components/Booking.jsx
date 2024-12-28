@@ -234,7 +234,7 @@ export default function Booking() {
                 </Menu.Items>
               </Menu>
               <input
-                className="w-[92%] max-w-[250px] md:w-full p-2  md:pb-[4rem] pb-[3.5rem] bg-white border border-solid border-blue text-blue rounded-none outline-none"
+                className="w-[92%] max-w-[250px] md:w-full p-2  md:pb-[4rem] pb-[3.5rem] bg-white border border-solid border-blue text-blue rounded-none outline-none text-[16px]"
                 type="text"
                 placeholder="Commentaire"
                 name="message"
