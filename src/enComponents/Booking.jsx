@@ -132,7 +132,7 @@ export default function Booking() {
             contact us directly at:
           </span>
           {/* Numbers */}
-          <div className="flex items-center justify-center md:justify-start flex-wrap gap-3 pt-[1.5rem] md:pt-[3rem]">
+          <div className="flex items-center justify-center md:justify-start flex-wrap gap-3 py-[1.5rem] md:py-[1rem]">
             <span className="text-[11px] md:text-[14px] font-sora font-semibold bg-blue text-light px-2 py-2 rounded-md">
               +212 6 61 32 58 40
             </span>
@@ -142,6 +142,9 @@ export default function Booking() {
             <span className="text-[11px] md:text-[14px] font-sora font-semibold bg-blue text-light px-2 py-2 rounded-md">
               +212 5 22 31 96 95
             </span>
+          </div>
+          <div className="text-[18px] md:text-[30px] text-center md:text-left font-bold text-blue z-10">
+          Location : Casablanca
           </div>
           {/* Icons */}
           <div className="py-[1.5rem] md:py-[3rem] flex items-center justify-center md:justify-start gap-3">
