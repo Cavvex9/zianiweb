@@ -26,7 +26,7 @@
     @apply text-center md:text-left mb-9 p-[0.9rem] text-[18px] md:text-[2.1rem] font-bold uppercase text-blue tracking-[1px] md:tracking-[2px] bg-light w-fit;
   }
   .input {
-    @apply w-[92%] max-w-[250px] md:w-full h-[35px] px-2 md:h-[40px] text-[14px] md:text-[17px] bg-white border border-solid border-blue text-blue rounded-none outline-none appearance-none;
+    @apply w-[92%] max-w-[250px] md:w-full h-[35px] px-2 md:h-[40px] text-[16px] md:text-[17px] bg-white border border-solid border-blue text-blue rounded-none outline-none appearance-none ;
   }
   body{
     @apply transition-all duration-300 selection:bg-red-500 selection:text-light
